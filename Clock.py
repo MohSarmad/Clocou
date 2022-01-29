@@ -1,28 +1,42 @@
+from xlwt import Workbook
+import xlwt
 import termcolor
 import os
 os.system('color')
 
 print("\n \n")
-print(termcolor.colored("      .g8'''bgd '7MM                                             ", "yellow")) 
-print(termcolor.colored("    .dP'     `M   MM                                             ", "yellow")) 
-print(termcolor.colored("    dM'       `   MM   ,pW'Wq.    ~p6'bo   ,pW'Wq.  '7MM  `7MM   ", "yellow")) 
-print(termcolor.colored("    MM            MM  6W'   `Wb  6M'  OO  6W'   `Wb   MM    MM   ", "yellow")) 
-print(termcolor.colored("    MM.           MM  8M     M8  8M       8M     M8   MM    MM   ", "yellow")) 
-print(termcolor.colored("    `Mb.     ,'   MM  YA.   ,A9  YM.    , YA.   ,A9   MM    MM   ", "yellow")) 
-print(termcolor.colored("      `'bmmmd'  .JMML. `Ybmd9'    YMbmd'   `Ybmd9'    `Mbod'YML.  \n \n \n", "yellow"))   
-print(termcolor.colored("rahnam : salam! dar ebtada saate shoro' ro vared nomaieed. deghghat konid ke saat be sorate AA:AA vared shavad na shekle dige ie. ba'd saate payan ra vared konid v sabr konid ta mohasebe anjam shavad \n\n\n" , "red"))
+print(termcolor.colored("      .g8'''bgd '7MM                                             ", )) 
+print(termcolor.colored("    .dP'     `M   MM                                             ", )) 
+print(termcolor.colored("    dM'       `   MM   ,pW'Wq.    ~p6'bo   ,pW'Wq.  '7MM  `7MM   ", )) 
+print(termcolor.colored("    MM            MM  6W'   `Wb  6M'  OO  6W'   `Wb   MM    MM   ", )) 
+print(termcolor.colored("    MM.           MM  8M     M8  8M       8M     M8   MM    MM   ", )) 
+print(termcolor.colored("    `Mb.     ,'   MM  YA.   ,A9  YM.    , YA.   ,A9   MM    MM   ", )) 
+print(termcolor.colored("      `'bmmmd'  .JMML. `Ybmd9'    YMbmd'   `Ybmd9'    `Mbod'YML.  \n \n \n", ))   
+print(termcolor.colored("rahnam : salam! dar ebtada saate shoro' ro vared nomaieed\n. deghghat konid ke saat be sorate AA:AA vared shavad na shekle dige ie\n. ba'd saate payan ra vared konid v sabr konid ta mohasebe anjam shavad \n\n\n" , "red"))
 
+
+boldStyle =  xlwt.easyxf('font: name Times New Roman, color-index blue, bold on')
+boldStyle2 =  xlwt.easyxf('font: name Times New Roman, color-index red, bold on')
+wb = Workbook()
+sheet1 = wb.add_sheet('sheet1')
+sheet1.col(0).width = 7000
+tempDay = 0
+y = int()
 clockFinal = int()
 minFinal = int()
 finalClock = list()
 nameList = list()
-num = int(input(termcolor.colored("tedad afrad morede nazar baraye mohasebe ==> " , "green")))
+dayCount = int()
+num = int(input(termcolor.colored("tedad afrad morede nazar baraye mohasebe ==> " , "yellow")))
 if num == '0':
     exit()
 
 for i in range(num):
-    name = input(termcolor.colored("|  esme farde " + str(i + 1) + "==> ", "green"))
+    name = str(input(termcolor.colored("|  esme farde " + str(i + 1) + "==> ", "green")))
     nameList.append(name)
+
+    sheet1.write(i + 1, 0, name, boldStyle)
+
     monthDay = int(input(termcolor.colored("|   |   tedad rooz haye mahe morede mohasebe baraye *"+ str(nameList[i]) + "* ==> " , "green" )))
 
     if name == 0:
@@ -30,15 +44,32 @@ for i in range(num):
 
     j = 0
 
-    while (j < monthDay):
-        print(termcolor.colored("|   |   |", "blue"))
-        print(termcolor.colored("|   |   |", "blue"))
-        print(termcolor.colored("|   |   |", "blue"))
-        print(termcolor.colored("|   |   |   ettelaate rooz "+ str(j + 1) + " mah , baraye *" + str(nameList[i]) + "* :" ,"blue"))
+    if monthDay > dayCount:
+        dayCount = monthDay
+
+    if monthDay > tempDay :
+        y += 1
+        if y <= 1:
+            tempDay = monthDay
+
+            for h in range(monthDay):
+                sheet1.write(0, h + 1, "rooz " + str(h + 1), boldStyle)
+        else:
+            x = int(monthDay - tempDay)
+
+            for h in range(tempDay, x + 1):
+                sheet1.write(0, h + 1, "rooz " + str(h + 1), boldStyle)
         
-        print(termcolor.colored("|   |   |   |", "blue"))
-        list1 = list(input(termcolor.colored("|   |   |   |    saat shoro ra vared nomaieed ==> " , "blue")))
-        list2 = list(input(termcolor.colored("|   |   |   |    saat payan ra vared nomaieed ==> ", "blue")))
+
+    while (j < monthDay):
+        print(termcolor.colored("|   |   |", "cyan"))
+        print(termcolor.colored("|   |   |", "cyan"))
+        print(termcolor.colored("|   |   |", "cyan"))
+        print(termcolor.colored("|   |   |   ettelaate rooz "+ str(j + 1) + " mah , baraye *" + str(nameList[i]) + "* :" ,"cyan"))
+        
+        print(termcolor.colored("|   |   |   |", "cyan"))
+        list1 = list(input(termcolor.colored("|   |   |   |    saat shoro ra vared nomaieed ==> " , "cyan")))
+        list2 = list(input(termcolor.colored("|   |   |   |    saat payan ra vared nomaieed ==> ", "cyan")))
 
         if (len(list1) > 5 or len(list2) > 5) or (len(list1) < 5 or len(list2) < 5) :
             print(termcolor.colored("\n\n***saate vared shode eshtebah ast. ettelaate rooz" + str(j + 1) + " ra dobare vared konid***" , "red"))
@@ -102,6 +133,14 @@ for i in range(num):
         clockFinal = clockFinal + sum1
         minFinal = minFinal + sum2
 
+        clockFinal = clockFinal + (minFinal // 60)
+        minFinal = minFinal % 60
+
+        strClock = str(clockFinal)
+        strMin = str(minFinal)
+
+        sheet1.write(i + 1 , j + 1 , strClock + ':' + strMin)
+
         j += 1
     
     clockFinal = clockFinal + (minFinal // 60)
@@ -115,6 +154,16 @@ temp = 0
 for i in range(0 , len(finalClock) , 2):
     print("\n\n\nmajmo saate kare *"+ str(nameList[temp]) + "* barabar ast ba ==> "+ str(finalClock[i]) ,"saat v "+ str(finalClock[i + 1]) +" daghighe")
     temp = temp + 1
+    sheet1.write(temp , dayCount + 1, str(finalClock[i]) + ':' + str(finalClock[i + 1]))
 
-input(termcolor.colored("\n\nbaraye khoroj Enter bezanid", "blue"))
-exit()
+sheet1.write(0 , dayCount + 1 , 'majmoo', boldStyle2)
+
+while True:
+    status = input(termcolor.colored("\n\nfile Excel mohasebat tashkil shavad?(yes, no)==> ", "yellow"))
+    if status == 'yes' :
+        wb.save('Clucou.xls')
+        exit()
+    elif status == 'no':
+        exit()
+    else:
+        input(termcolor.colored("\n\ntanha 'yes' ya 'no' zade shavad ==> ", "yellow"))
