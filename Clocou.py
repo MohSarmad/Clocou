@@ -14,24 +14,28 @@ print(termcolor.colored("    `Mb.     ,'   MM  YA.   ,A9  YM.    , YA.   ,A9   M
 print(termcolor.colored("      `'bmmmd'  .JMML. `Ybmd9'    YMbmd'   `Ybmd9'    `Mbod'YML.  \n \n \n", ))   
 print(termcolor.colored("rahnam : salam! dar ebtada saate shoro' ro vared nomaieed\n. deghghat konid ke saat be sorate AA:AA vared shavad na shekle dige ie\n. ba'd saate payan ra vared konid v sabr konid ta mohasebe anjam shavad \n\n\n" , "red"))
 
+boldStyle =  xlwt.easyxf('font: name Salma Alfasans Med, color-index blue, bold on ')
+boldStyle2 =  xlwt.easyxf('font: name Salma Alfasans Med, color-index red, bold on')
 
-boldStyle =  xlwt.easyxf('font: name Times New Roman, color-index blue, bold on')
-boldStyle2 =  xlwt.easyxf('font: name Times New Roman, color-index red, bold on')
 wb = Workbook()
 sheet1 = wb.add_sheet('sheet1')
 sheet1.col(0).width = 7000
-tempDay = 0
+
 y = int()
+tempDay = 0
 clockFinal = int()
 minFinal = int()
 finalClock = list()
 nameList = list()
 dayCount = int()
+
 num = int(input(termcolor.colored("tedad afrad morede nazar baraye mohasebe ==> " , "yellow")))
 if num == '0':
     exit()
 
 for i in range(num):
+    clockFinal = int()
+    minFinal = int()
     name = str(input(termcolor.colored("|  esme farde " + str(i + 1) + "==> ", "green")))
     nameList.append(name)
 
@@ -130,14 +134,17 @@ for i in range(num):
                 temp1 += 1
                 sum1 += 1 
 
+        clockFinalExcel = int(sum1)
+        minFinalExcel = int(sum2)
+
         clockFinal = clockFinal + sum1
         minFinal = minFinal + sum2
 
         clockFinal = clockFinal + (minFinal // 60)
         minFinal = minFinal % 60
 
-        strClock = str(clockFinal)
-        strMin = str(minFinal)
+        strClock = str(clockFinalExcel)
+        strMin = str(minFinalExcel)
 
         sheet1.write(i + 1 , j + 1 , strClock + ':' + strMin)
 
@@ -158,12 +165,19 @@ for i in range(0 , len(finalClock) , 2):
 
 sheet1.write(0 , dayCount + 1 , 'majmoo', boldStyle2)
 
+
 while True:
     status = input(termcolor.colored("\n\nfile Excel mohasebat tashkil shavad?(yes, no)==> ", "yellow"))
     if status == 'yes' :
         wb.save('Clucou.xls')
         exit()
     elif status == 'no':
-        exit()
+        status1 = input(termcolor.colored("\n\naya motmaennid? dar insoorat mohasebate shoma pak mishavad...(yes, no)==> ", "yellow"))
+        if status1 == 'yes':
+            exit()
+        elif status1 == 'no':
+            continue
+        else:
+            input(termcolor.colored("\n\ntanha 'yes' ya 'no' zade shavad ==> ", "yellow"))    
     else:
         input(termcolor.colored("\n\ntanha 'yes' ya 'no' zade shavad ==> ", "yellow"))
