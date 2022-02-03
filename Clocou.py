@@ -12,7 +12,6 @@ print(termcolor.colored("    MM            MM  6W'   `Wb  6M'  OO  6W'   `Wb   M
 print(termcolor.colored("    MM.           MM  8M     M8  8M       8M     M8   MM    MM   ", )) 
 print(termcolor.colored("    `Mb.     ,'   MM  YA.   ,A9  YM.    , YA.   ,A9   MM    MM   ", )) 
 print(termcolor.colored("      `'bmmmd'  .JMML. `Ybmd9'    YMbmd'   `Ybmd9'    `Mbod'YML.  \n \n \n", ))   
-print(termcolor.colored("rahnam : salam! dar ebtada saate shoro' ro vared nomaieed\n. deghghat konid ke saat be sorate AA:AA vared shavad na shekle dige ie\n. ba'd saate payan ra vared konid v sabr konid ta mohasebe anjam shavad \n\n\n" , "red"))
 
 boldStyle =  xlwt.easyxf('font: name Salma Alfasans Med, color-index blue, bold on ')
 boldStyle2 =  xlwt.easyxf('font: name Salma Alfasans Med, color-index red, bold on')
@@ -29,19 +28,19 @@ finalClock = list()
 nameList = list()
 dayCount = int()
 
-num = int(input(termcolor.colored("tedad afrad morede nazar baraye mohasebe ==> " , "yellow")))
+num = int(input(termcolor.colored("Number of people calculated ==> " , "yellow")))
 if num == '0':
     exit()
 
 for i in range(num):
     clockFinal = int()
     minFinal = int()
-    name = str(input(termcolor.colored("|  esme farde " + str(i + 1) + "==> ", "green")))
+    name = str(input(termcolor.colored("|  Name of person " + str(i + 1) + "==> ", "green")))
     nameList.append(name)
 
     sheet1.write(i + 1, 0, name, boldStyle)
 
-    monthDay = int(input(termcolor.colored("|   |   tedad rooz haye mahe morede mohasebe baraye *"+ str(nameList[i]) + "* ==> " , "green" )))
+    monthDay = int(input(termcolor.colored("|   |   The number of days of the month is calculated for *"+ str(nameList[i]) + "* ==> " , "green" )))
 
     if name == 0:
         exit()
@@ -57,27 +56,29 @@ for i in range(num):
             tempDay = monthDay
 
             for h in range(monthDay):
-                sheet1.write(0, h + 1, "rooz " + str(h + 1), boldStyle)
+                sheet1.write(0, h + 1, "day " + str(h + 1), boldStyle)
         else:
             x = int(monthDay - tempDay)
 
             for h in range(tempDay, x + 1):
-                sheet1.write(0, h + 1, "rooz " + str(h + 1), boldStyle)
+                sheet1.write(0, h + 1, "day " + str(h + 1), boldStyle)
         
 
     while (j < monthDay):
         print(termcolor.colored("|   |   |", "cyan"))
         print(termcolor.colored("|   |   |", "cyan"))
         print(termcolor.colored("|   |   |", "cyan"))
-        print(termcolor.colored("|   |   |   ettelaate rooz "+ str(j + 1) + " mah , baraye *" + str(nameList[i]) + "* :" ,"cyan"))
+        print(termcolor.colored("|   |   |   Information day "+ str(j + 1) + " month , for *" + str(nameList[i]) + "* :" ,"cyan"))
         
         print(termcolor.colored("|   |   |   |", "cyan"))
-        list1 = list(input(termcolor.colored("|   |   |   |    saat shoro ra vared nomaieed ==> " , "cyan")))
-        list2 = list(input(termcolor.colored("|   |   |   |    saat payan ra vared nomaieed ==> ", "cyan")))
+        print(termcolor.colored("|   |   |   |   Make sure the clock is entered as AA:AA" , "red"))
+
+        list1 = list(input(termcolor.colored("|   |   |   |    Start time ==> " , "cyan")))
+        list2 = list(input(termcolor.colored("|   |   |   |    End time ==> ", "cyan")))
 
         if (len(list1) > 5 or len(list2) > 5) or (len(list1) < 5 or len(list2) < 5) :
-            print(termcolor.colored("\n\n***saate vared shode eshtebah ast. ettelaate rooz" + str(j + 1) + " ra dobare vared konid***" , "red"))
-            ex = input(termcolor.colored("baraye edame Enter bezanid...baraye khoroj 0 bezanid", "green"))
+            print(termcolor.colored("\n\n***The clock entered is incorrect. Re-enter day " + str(j + 1) + " information***" , "red"))
+            ex = input(termcolor.colored("Press **Enter** to continue.....Press **0** to exit", "green"))
             if ex == '0':
                 exit()
             continue
@@ -95,8 +96,8 @@ for i in range(num):
         min2 = (three2 * 10) + int(list2[4])
 
         if saat1 > 23 or saat2 > 23 or min1 > 59 or min2 > 59 :
-            print(termcolor.colored("\n\n\nsaate vared shode eshtebah ast. dobare talash konid" , "red"))
-            ex = input(termcolor.colored("baraye edame Enter bezanid...baraye khoroj 0 bezanid", "green"))
+            print(termcolor.colored("\n\n\n***The clock entered is incorrect. Re-enter day " + str(j + 1) + " information***" , "red"))
+            ex = input(termcolor.colored("Press **Enter** to continue.....Press **0** to exit", "green"))
             if ex == '0':
                 exit()
             continue
@@ -159,25 +160,25 @@ for i in range(num):
 temp = 0
 
 for i in range(0 , len(finalClock) , 2):
-    print("\n\n\nmajmo saate kare *"+ str(nameList[temp]) + "* barabar ast ba ==> "+ str(finalClock[i]) ,"saat v "+ str(finalClock[i + 1]) +" daghighe")
+    print("\n\n\n" + str(nameList[temp]) + "'s total working Clock are equal to ==> "+ str(finalClock[i]) ,"hours and "+ str(finalClock[i + 1]) +" minutes")
     temp = temp + 1
     sheet1.write(temp , dayCount + 1, str(finalClock[i]) + ':' + str(finalClock[i + 1]))
 
-sheet1.write(0 , dayCount + 1 , 'majmoo', boldStyle2)
+sheet1.write(0 , dayCount + 1 , 'Total', boldStyle2)
 
 
 while True:
-    status = input(termcolor.colored("\n\nfile Excel mohasebat tashkil shavad?(yes, no)==> ", "yellow"))
-    if status == 'yes' :
+    status = input(termcolor.colored("\n\nCreate a calculation Excel file?[Y,n] ==> ", "yellow"))
+    if status == 'y' or 'Y' or 'yes' or 'Yes' :
         wb.save('Clucou.xls')
         exit()
-    elif status == 'no':
-        status1 = input(termcolor.colored("\n\naya motmaennid? dar insoorat mohasebate shoma pak mishavad...(yes, no)==> ", "yellow"))
-        if status1 == 'yes':
+    elif status == 'n' or 'N' or 'no' or 'No':
+        status1 = input(termcolor.colored("\n\nAre you sure? In this case, the calculations are deleted.[Yes,Cancel]==> ", "yellow"))
+        if status1 == 'yes' or 'Y' or 'y' or 'Yes':
             exit()
-        elif status1 == 'no':
+        elif status1 == 'no' or 'n' or 'N' or 'Cancel' or 'cancel' or 'c' or 'C':
             continue
         else:
-            input(termcolor.colored("\n\ntanha 'yes' ya 'no' zade shavad ==> ", "yellow"))    
+            input(termcolor.colored("\n\nOnly possible items can be entered. Not anything else ", "yellow"))    
     else:
-        input(termcolor.colored("\n\ntanha 'yes' ya 'no' zade shavad ==> ", "yellow"))
+        input(termcolor.colored("\n\nOnly possible items can be entered. Not anything else ==> ", "yellow"))
