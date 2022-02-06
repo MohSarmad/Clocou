@@ -1,0 +1,32 @@
+[
+  {
+    "name": "v1.1-beta.1",
+    "zipball_url": "https://api.github.com/repos/mohsarmad/Clocou/zipball/refs/tags/v1.1-beta.1",
+    "tarball_url": "https://api.github.com/repos/mohsarmad/Clocou/tarball/refs/tags/v1.1-beta.1",
+    "commit": {
+      "sha": "f595deb13653d135bef32e25bffa2d2bb64690bc",
+      "url": "https://api.github.com/repos/mohsarmad/Clocou/commits/f595deb13653d135bef32e25bffa2d2bb64690bc"
+    },
+    "node_id": "REF_kwDOGvm1w7VyZWZzL3RhZ3MvdjEuMS1iZXRhLjE"
+  },
+  {
+    "name": "v1.1-beta.0",
+    "zipball_url": "https://api.github.com/repos/mohsarmad/Clocou/zipball/refs/tags/v1.1-beta.0",
+    "tarball_url": "https://api.github.com/repos/mohsarmad/Clocou/tarball/refs/tags/v1.1-beta.0",
+    "commit": {
+      "sha": "b0cd68a7bd9c1e5c6c8f3288a3c9c1625a14c449",
+      "url": "https://api.github.com/repos/mohsarmad/Clocou/commits/b0cd68a7bd9c1e5c6c8f3288a3c9c1625a14c449"
+    },
+    "node_id": "REF_kwDOGvm1w7VyZWZzL3RhZ3MvdjEuMS1iZXRhLjA"
+  },
+  {
+    "name": "v1.0-beta.0",
+    "zipball_url": "https://api.github.com/repos/mohsarmad/Clocou/zipball/refs/tags/v1.0-beta.0",
+    "tarball_url": "https://api.github.com/repos/mohsarmad/Clocou/tarball/refs/tags/v1.0-beta.0",
+    "commit": {
+      "sha": "ec88532ccbd3e73bb589b769bfe8acd88ab3035a",
+      "url": "https://api.github.com/repos/mohsarmad/Clocou/commits/ec88532ccbd3e73bb589b769bfe8acd88ab3035a"
+    },
+    "node_id": "REF_kwDOGvm1w7VyZWZzL3RhZ3MvdjEuMC1iZXRhLjA"
+  }
+]
