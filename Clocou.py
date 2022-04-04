@@ -1,20 +1,26 @@
+# Hey! i'm Mhsn!
+# Gmail : mhsnsrmd8448@gmail.com 
+# Github: https://github.com/mohsarmad
+# stackoverflow: https://stackoverflow.com/users/17994638/mhsn
+
 from xlwt import Workbook
 import xlwt
 import termcolor
 import os
 os.system('color')
 
-print("\n \n")
-print(termcolor.colored("      .g8'''bgd '7MM                                             ", )) 
-print(termcolor.colored("    .dP'     `M   MM                                             ", )) 
-print(termcolor.colored("    dM'       `   MM   ,pW'Wq.    ~p6'bo   ,pW'Wq.  '7MM  `7MM   ", )) 
-print(termcolor.colored("    MM            MM  6W'   `Wb  6M'  OO  6W'   `Wb   MM    MM   ", )) 
-print(termcolor.colored("    MM.           MM  8M     M8  8M       8M     M8   MM    MM   ", )) 
-print(termcolor.colored("    `Mb.     ,'   MM  YA.   ,A9  YM.    , YA.   ,A9   MM    MM   ", )) 
-print(termcolor.colored("      `'bmmmd'  .JMML. `Ybmd9'    YMbmd'   `Ybmd9'    `Mbod'YML.  \n \n \n", ))   
+print("\n\n")
+print(termcolor.colored("      █████████   ████  ", )) 
+print(termcolor.colored("     ███░░░░░███░ ░███                                       ", )) 
+print(termcolor.colored("    ███     ░░░   ░███    ██████    ██████    ██████   █████ ████", )) 
+print(termcolor.colored("   ░███           ░███   ███░░███  ███░░███  ███░░███ ░░███ ░███ ", )) 
+print(termcolor.colored("   ░███           ░███  ░███ ░███ ░███ ░░░  ░███ ░███  ░███ ░███ ", )) 
+print(termcolor.colored("   ░░███     ███  ░███  ░███ ░███ ░███  ███ ░███ ░███  ░███ ░███ ", )) 
+print(termcolor.colored("    ░░█████████   █████ ░░██████  ░░██████  ░░██████   ░░████████", )) 
+print(termcolor.colored("     ░░░░░░░░░   ░░░░░   ░░░░░░    ░░░░░░    ░░░░░░     ░░░░░░░░  \n\n\n", )) 
 
-boldStyle =  xlwt.easyxf('font: name Salma Alfasans Med, color-index blue, bold on ')
-boldStyle2 =  xlwt.easyxf('font: name Salma Alfasans Med, color-index red, bold on')
+boldStyle = xlwt.easyxf('font: name Salma Alfasans Med, color-index blue, bold on ')
+boldStyle2 = xlwt.easyxf('font: name Salma Alfasans Med, color-index red, bold on')
 
 wb = Workbook()
 sheet1 = wb.add_sheet('sheet1')
